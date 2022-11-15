@@ -1,11 +1,6 @@
-<%- include('partials/header'); %>
-
 <h1>Profile List</h1> 
 <ul>
-    <% for (let i = 0; i < users.length; i++) { %>
-    <li><%= users[i]%></li>
-    <% } %>
+   <% for (let i = 0; i < profiles.length; i++ ) {%>
+  <li><a href="/profiles/<%= profiles[i].id %>"><%= profiles[i].name %></a></li>
+  <% } %>
 </ul>
-
-
-<%- include('partials/footer'); %>

@@ -1,11 +1,10 @@
-<%- include('partials/header'); %>
-
-<h1><%= name %></h1> 
+<% for (let i = 0; i < profiles.length; i++) { %> <% if(profiles[i].id ===
+profileId) { %> 
+    <h2><%= profiles[i].name%> </h2>
+    <img src="<%= profiles[i].imagePath %>" width="500px"/>
 <ul>
-    <img src = "<%=imagePath%>" alt="" width = "500px">
-    <% for (let i = 0; i < interests.length; i++) { %>
-    <li><%= interests[i]%></li>
-    <% } %>
+  <% for (let j = 0; j < profiles[i].interests.length; j++) { %>
+  <li><%= profiles[i].interests[j]%></li>
+  <% } %>
 </ul>
-
-<%- include('partials/footer'); %>
+<% } %> <% } %>

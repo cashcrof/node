@@ -1,9 +1,13 @@
-<%- include('partials/header'); %>
-
 <h1>Submit Contact Form</h1>
+
+<% if (status == "received") { %>
+<section id = "form-submission">
+    <p>Thank you for submitting!</p>
+</section>
+
+<% } else { %>
 <form action="" method="post">
     <input type="text">
     <input type="submit" value="Submit">
 </form>
-
-<%- include('partials/footer'); %>
+<% }%>
