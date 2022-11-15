@@ -1,0 +1,6 @@
+[submodule "Day1/assignment11~"]
+	path = Day1/assignment11~
+	url = https://github.com/cashcrof/node.git
+[submodule "Day1/assignment1"]
+	path = Day1/assignment1
+	url = https://github.com/cashcrof/node.git
