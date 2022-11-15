@@ -1,0 +1,32 @@
+[
+    {
+        "id": "cashcroft",
+        "name": "Ceilidh Ashcroft",
+        "imagePath": "/images/image-1.jpg",
+        "interests": [
+            "Books",
+            "Video Games",
+            "Long walks on the beach"
+        ]
+    },
+    {
+        "id": "bsmith",
+        "name": "Bob Smith",
+        "imagePath": "/images/image-2.jpg",
+        "interests": [
+            "Movies",
+            "Tea",
+            "Cycling"
+        ]
+    },
+    {
+        "id": "jschmoe",
+        "name": "Joe Schmoe",
+        "imagePath": "/images/image-3.jpg",
+        "interests": [
+            "Baseball",
+            "Hockey",
+            "Burgers"
+        ]
+    }
+]

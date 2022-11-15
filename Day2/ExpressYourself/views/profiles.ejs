@@ -1,0 +1,11 @@
+<%- include('partials/header'); %>
+
+<h1>Profile List</h1> 
+<ul>
+    <% for (let i = 0; i < users.length; i++) { %>
+    <li><%= users[i]%></li>
+    <% } %>
+</ul>
+
+
+<%- include('partials/footer'); %>
