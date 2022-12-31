@@ -1,0 +1,65 @@
+<div class = "form-group">
+    <h3><%= profile_id ? "Edit" : "New" %> Profile</h3>
+
+    <form id="edit" action="/user/profile/edit<%= profile_id ? "/"+profile_id : "" %>" method="POST">   
+
+        <div <% if (profile_id == reqInfo.id || isAdmin) { %> style="display: block" <% } else { %> style ="display: none" <% } %>>
+            <input type="hidden" id="profile_id" name="profile_id" value="<%= profile_id %>">
+            <div class="form-outline mb-4">
+                <label class="form-label" for="email">Email:</label>
+                <input id="email" name="email" type="text" value="<%= profile.email ? profile.email : '' %>" class="form-control">
+            </div>
+
+            <div class="form-outline mb-4">
+                <label class="form-label" for="username">Username:</label>
+                <input id="username" name="username" type="text" value="<%= profile.username ? profile.username : '' %>" class="form-control" <% if(!isAdmin) { %> readonly <% } %>  >
+            </div>
+
+            <div class="form-outline mb-4">
+                <label class="form-label" for="firstName">First Name:</label>
+                <input id="firstName" name="firstName" type="text" value="<%= profile.firstName ? profile.firstName : '' %>" class="form-control">
+            </div>
+
+            <div class="form-outline mb-4">
+                <label class="form-label" for="lastName">Last Name:</label>
+                <input id="lastName" name="lastName" type="text" value="<%= profile.lastName ? profile.lastName : '' %>" class="form-control">
+            </div>
+
+            <div class="form-outline mb-4">
+                <label class="form-label" for="interests">Interests:</label>
+                <input id="interests" name="interests" type="text" value="<%= profile.interests ? profile.interests : '' %>" class="form-control">
+            </div>
+
+            <div class="form-outline mb-4">
+                <label class="form-label" for="imagePath">Profile Image:</label>
+                <select id="imagePath" name="imagePath" form="edit" class="form-control">
+                    <option value="">-- Select Profile Image --</option>
+                    <option value="/images/cat.jpg" <% if (profile.imagePath == "/images/cat.jpg") {%> selected <% } %>>cat</option>
+                    <option value="/images/pug.jpg" <% if (profile.imagePath == "/images/pug.jpg") {%> selected <% } %>>pug</option>
+                    <option value="/images/turtle.jpg" <% if (profile.imagePath == "/images/turtle.jpg") {%> selected <% } %>>turtle</option>
+                    <option value="/images/fish.jpg" <% if (profile.imagePath == "/images/fish.jpg") {%> selected <% } %>>fish</option>
+                    <option value="/images/flamingo.jpg" <% if (profile.imagePath == "/images/flamingo.jpg") {%> selected <% } %>>flamingo</option>
+                    <option value="/images/hamster.jpg" <% if (profile.imagePath == "/images/hamster.jpg") {%> selected <% } %>>hamster</option>
+                    <option value="/images/parrot.jpg" <% if (profile.imagePath == "/images/parrot.jpg") {%> selected <% } %>>parrot</option>
+                </select>
+            </div>
+        </div>
+
+        <% if(isAdmin || isManager) {  %>
+            <div>
+                <label for="admin">Administrator:</label>
+                <input id="admin" name="Admin" value="Admin" type="checkbox" <% if(profile.roles.includes("Admin")){ %> checked <% } %>  >
+            </div>
+
+            <div>
+                <label for = "manager">Manager:</td>
+                <input id="manager" name="Manager" value ="Manager" type="checkbox" <% if(profile.roles.includes("Manager")){ %> checked <% } %>>
+            </div>
+        <% } %> 
+        <div>
+            <button class = "btn btn-info" type="submit" value="Submit">Submit</button>
+            <a class = "btn btn-danger" href="/user/profile/<%= profile_id%>">Cancel</a>
+        </div>
+    </form>
+    <%= errorMessage %>
+</div>

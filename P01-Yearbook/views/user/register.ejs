@@ -1,0 +1,65 @@
+<div class="page-header" style="padding-top: 5%">
+    <h2 class="text-center">Register</h2>
+</div>
+
+<form action="/user/register" class="form-group" style="padding: 10%;" method="POST" id="register">   
+    <div class="form-outline mb-4">
+        <label class="form-label" for="username">User Name: </label>
+        <input name="username" type="text" value="<%= user.username ? user.username : '' %>" class="form-control">
+    </div>
+
+    <div class="form-outline mb-4">
+        <label class="form-label" for="email">Email: </label>
+        <input name="email" type="text" value="<%= user.email ? user.email : '' %>" class="form-control">
+    </div>  
+
+    <div class="form-outline mb-4">
+        <label class="form-label" for="firstName">First Name: </label>
+        <input name="firstName" type="text" value="<%= user.firstName ? user.firstName : '' %>" class="form-control">
+    </div>
+
+    <div class="form-outline mb-4">
+        <label class="form-label" for="lastName">Last Name: </label>
+        <input name="lastName" type="text" value="<%= user.lastName ? user.lastName : '' %>" class="form-control">
+    </div>  
+
+    <div class="form-outline mb-4">
+        <label class="form-label" for="password">Password:</label>
+        <input name="password" type="password" class="form-control">
+    </div>
+
+    <div class="form-outline mb-4">
+        <label class="form-label" for="passwordConfirm">Password Confirmation:</label>
+        <input name="passwordConfirm" type="password" class="form-control">
+    </div>
+
+    <div class="form-outline mb-4">
+        <label class="form-label" for="admin">Administrator:</label>
+        <input id="admin" name="admin" value="Admin" type="checkbox">
+    </div>
+    
+    <div class="form-outline mb-4">
+        <label class="form-label" for="manager">Manager:</label>
+        <input id="manager" name="manager" value="Manager" type="checkbox">
+    </div>
+
+    <div class="form-outline mb-4">
+        <label class="form-label" for="imagePath">Profile Image:</label>
+        <select id="imagePath" name="imagePath" form="register" class="form-control">
+            <option value="">-- Select Profile Image --</option>
+            <option value="/images/cat.jpg">cat</option>
+            <option value="/images/pug.jpg">pug</option>
+            <option value="/images/turtle.jpg">turtle</option>
+            <option value="/images/fish.jpg">fish</option>
+            <option value="/images/flamingo.jpg">flamingo</option>
+            <option value="/images/hamster.jpg">hamster</option>
+            <option value="/images/parrot.jpg">parrot</option>
+        </select>
+    </div>
+
+    <div class="mx-auto" style="width:50%;">
+        <input type="submit" value="Register" class="btn btn-primary btn-block mb-4">
+    </div>
+
+</form>
+<%= errorMessage %><br/>

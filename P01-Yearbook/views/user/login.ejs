@@ -1,0 +1,19 @@
+<div class="page-header" style="padding-top: 10%">
+    <h2 class="text-center">Login</h2>
+</div>
+
+<form class="form-group" style="padding: 10%;" action="/user/login" method="POST"> 
+    <div class="form-outline mb-4">
+        <label class="form-label" for="username">Username</label>
+        <input class="form-control" name="username" type="text" value="<%= user.username ? user.username : '' %>">
+    </div>
+    <div class="form-outline mb-4">
+        <label class="form-label" for="password">Password</label>
+        <input class="form-control" name="password" type="password">
+    </div>
+    <div class="mx-auto" style="width:50%;">
+        <input type="submit" value="Login" class="btn btn-primary btn-block mb-4">
+    </div>
+
+</form>
+<%= errorMessage ? errorMessage : "" %><br/>

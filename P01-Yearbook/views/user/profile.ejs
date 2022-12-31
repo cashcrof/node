@@ -1,0 +1,49 @@
+<% for (let i = 0; i < profiles.length; i++) { %> <% if(profiles[i].id === profileId) { %> 
+  <div class="align-items-center">
+    <h2><%= profiles[i].firstName%> <%= profiles[i].lastName %></h2>
+    <img src="<%= profiles[i].imagePath %>" height="300px" max-width="300px" class="rounded"/>
+
+    <h3>Interests</h3>
+    <ul>
+      <% if(profiles[i].interests.length > 0){ %>
+      <% for (let j = 0; j < profiles[i].interests.length; j++) { %>
+        <li  class="list-group-item" style="list-style-type: none;" ><%= profiles[i].interests[j]%></li>
+      <% } } else { %> 
+        <li style="list-style-type: none;">No interests yet.</li>
+      <% } %>
+    </ul>
+
+    <div class="rounded" style="margin: auto; background-color: aliceblue;">
+      <h3>Comments</h3>
+      <ul>
+        <% if(profiles[i].comments.length > 0){ %>
+        <% for (let j = 0; j < profiles[i].comments.length; j++) { %>
+          <li class="list-group-item" style="list-style-type: none; margin: 5%;" ><div><%= profiles[i].comments[j].commentBody%></div><span class="badge badge-light"><%= profiles[i].comments[j].commentAuthor%></span></li>
+        <% } } else { %> 
+          <li style="list-style-type: none;">No comments yet.</li>
+        <% } %>
+      </ul>
+
+      <div class = "form-group">
+        <form action="/user/profile/comment<%= profileId ? "/"+profileId : "" %>" method="POST">  
+          <input type="hidden" id="profile_id" name="profile_id" value="<%= profileId %>">
+          <input type="hidden" id="author" name="author" value="<%= reqInfo.username %>">
+          <div>
+            <label for="comment">Add a comment</label>
+            <input id="comment" name="comment" type="text" value="" >
+            <button class = " btn btn-info" type="submit" value="Submit">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <% if(profiles[i].id == reqInfo.id || isAdmin) {  %>
+      <a class = "btn btn-danger" href="/user/profile/<%= profiles[i].id %>/delete">Delete Profile</a>
+    <% } else {""} %> 
+
+    <% if(profiles[i].id == reqInfo.id || isAdmin || isManager) {  %>
+      <a class = "btn btn-info" href="/user/profile/edit/<%= profiles[i].id %>">Edit Profile</a>
+    <% } else {""} %>
+    <% } %> 
+  <% } %>
+</div>

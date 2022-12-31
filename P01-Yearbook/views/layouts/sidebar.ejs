@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= title %></title>
+  </head>
+  <style>
+    #sidebar{
+        display: flex;
+        justify-content: space-between;
+    }
+  </style>
+  <body>
+    <%- include('../partials/header.ejs') %>
+    <div class="container">
+      <div id="sidebar">
+      <main><%- body %></main>
+      <ul>
+        <h3>Other Profiles</h3>
+          <% for (let i = 0; i < profiles.length; i++) { %>
+              <%if(profiles[i].id != profileId) {%>
+                  <li style= "list-style: none;"><a href="/user/profile/<%=profiles[i].id%>"><%= profiles[i].firstName + " " + profiles[i].lastName %></a></li>
+              <% } %>
+          <% } %>
+      </ul>
+      </div>
+    </div>
+    <%- include('../partials/footer.ejs') %>
+  </body>
+</html>
